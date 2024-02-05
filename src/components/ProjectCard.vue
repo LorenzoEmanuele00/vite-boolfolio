@@ -20,6 +20,7 @@ export default {
         </div>
         <hr>
         <p class="p-2">{{project.description}}</p>
+        <router-link :to="{name: 'ProjectShow', params: {slug: project.slug}}" class="text-center">Scopri di più</router-link>
     </div>
 </template>
 

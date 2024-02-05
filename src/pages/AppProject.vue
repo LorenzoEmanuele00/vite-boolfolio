@@ -14,7 +14,6 @@ export default {
             .get(`${this.baseUrl}/api/projects`)
             .then((resp) => {
             this.projects = resp.data.result;
-            console.log(this.projects);
         });
     },
     components: { ProjectCard }
@@ -29,7 +28,6 @@ export default {
       </div>
     </div>
   </div>
-  
 </template>
 
 <style lang="scss" scoped>
