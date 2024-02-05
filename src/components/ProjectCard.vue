@@ -9,6 +9,14 @@ export default {
         return {
 
         }
+    },
+    computed: {
+        reducedText() {
+            if (this.project.description && this.project.description.length > 200) {
+                return this.project.description.substring(0, 200) + "...";
+            }
+            return this.project.description;
+        },
     }
 }
 </script>
@@ -19,8 +27,8 @@ export default {
             <h3 class="p-2 text-center">{{project.title}}</h3>
         </div>
         <hr>
-        <p class="p-2">{{project.description}}</p>
-        <router-link :to="{name: 'ProjectShow', params: {slug: project.slug}}" class="text-center">Scopri di più</router-link>
+        <p class="p-2">{{reducedText}}</p>
+        <router-link :to="{name: 'ProjectShow', params: {slug: project.slug}}" class="text-center my-3">Scopri di più</router-link>
     </div>
 </template>
 
