@@ -14,8 +14,12 @@ export default {
         axios
             .get(`${this.baseUrl}/api/project/${this.$route.params.slug}`)
             .then((resp) => {
-                this.project = resp.data.results;
-                // console.log(this.project);
+                if(resp => 'success' === true) {
+                    this.project = resp.data.results;
+                    // console.log(this.project);
+                } else {
+                    this.$router.push({name: 'notFound'});
+                }
             })
             .finally(() => {
                 this.loading = false;
